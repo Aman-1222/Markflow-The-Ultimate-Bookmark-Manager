@@ -30,36 +30,37 @@ export default function AddCategoryPage() {
     <div className="flex justify-center items-start pt-20">
       <div className="w-full max-w-lg">
         {/* Header */}
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-semibold text-gray-900">
+        <div className="mb-10 text-center">
+          <h1 className="text-2xl font-semibold text-gray-100">
             Add New Category
           </h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-400 mt-2">
             Create a new category to organize your bookmarks.
           </p>
         </div>
 
         {/* Card */}
-        <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+        <div className="bg-[#111827] border border-[#1F2937] rounded-lg p-8">
           <form action={addCategoryAction} className="space-y-8">
             {/* Category Name */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Category Name *
               </label>
               <input
                 name="name"
                 placeholder="Enter category name..."
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm 
-                focus:outline-none focus:ring-2 focus:ring-gray-900 
-                transition cursor-text"
+                className="w-full bg-[#0F172A] border border-[#1F2937]
+                rounded-md px-3 py-2 text-sm text-gray-100
+                placeholder-gray-500
+                focus:outline-none focus:ring-2 focus:ring-gray-500 transition"
                 required
               />
             </div>
 
             {/* Icon Picker */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-gray-300 mb-3">
                 Choose Icon
               </label>
 
@@ -73,16 +74,21 @@ export default function AddCategoryPage() {
                       key={item.name}
                       type="button"
                       onClick={() => setSelectedIcon(item.name)}
-                      className={`flex items-center justify-center p-3 rounded-md border 
-                        transition-all duration-150 cursor-pointer active:scale-95
+                      className={`relative flex items-center justify-center 
+                        p-3 rounded-md border transition-all duration-200
                         ${
                           isSelected
-                            ? "border-gray-900 bg-gray-100"
-                            : "border-gray-200 hover:border-gray-500 hover:bg-gray-50"
+                            ? "bg-[#0F172A] border-gray-400 ring-1 ring-gray-500 scale-105 text-white"
+                            : "bg-[#0F172A] border-[#1F2937] text-gray-300 hover:border-gray-500"
                         }
                       `}
                     >
                       <Icon size={18} />
+
+                      {/* Selected Dot */}
+                      {isSelected && (
+                        <span className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full"></span>
+                      )}
                     </button>
                   );
                 })}
@@ -91,7 +97,7 @@ export default function AddCategoryPage() {
 
             {/* Color Picker */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-gray-300 mb-3">
                 Choose Color
               </label>
 
@@ -104,16 +110,22 @@ export default function AddCategoryPage() {
                       key={color}
                       type="button"
                       onClick={() => setSelectedColor(color)}
-                      className={`w-8 h-8 rounded-full border-2 
-                        transition-all duration-150 cursor-pointer active:scale-95
+                      className={`relative w-8 h-8 rounded-full
+                        transition-all duration-200
                         ${
                           isSelected
-                            ? "border-gray-900 scale-110"
-                            : "border-transparent hover:scale-110 hover:ring-2 hover:ring-gray-300"
+                            ? "scale-110 ring-2 ring-white"
+                            : "hover:scale-110"
                         }
                       `}
                       style={{ backgroundColor: color }}
-                    />
+                    >
+                      {isSelected && (
+                        <span className="absolute inset-0 flex items-center justify-center text-xs text-white">
+                          ✓
+                        </span>
+                      )}
+                    </button>
                   );
                 })}
               </div>
@@ -123,16 +135,16 @@ export default function AddCategoryPage() {
             <div className="flex justify-end gap-3 pt-4">
               <button
                 type="button"
-                className="px-4 py-2 rounded-md border border-gray-300 text-sm 
-                hover:bg-gray-50 transition cursor-pointer active:scale-95"
+                className="px-4 py-2 rounded-md border border-[#1F2937] 
+                text-gray-300 text-sm hover:bg-[#0F172A] transition"
               >
                 Cancel
               </button>
 
               <button
                 type="submit"
-                className="px-5 py-2 rounded-md bg-gray-900 text-white text-sm 
-                hover:bg-black transition cursor-pointer active:scale-95"
+                className="px-5 py-2 rounded-md bg-white text-black text-sm
+                hover:bg-gray-200 transition active:scale-95"
               >
                 Create Category
               </button>

@@ -25,7 +25,8 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-gray-900 text-white p-6 h-screen flex flex-col">
+    <aside className="w-64 bg-[#0F172A] text-gray-400 p-6 h-screen flex flex-col border-r border-[#1F2937]">
+      {/* Logo */}
       <div className="flex justify-center mb-12">
         <Image
           src="/logo.svg"
@@ -46,11 +47,11 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-2 rounded-md transition text-sm
+              className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm transition
                 ${
                   isActive
-                    ? "bg-gray-800 font-medium"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-[#111827] text-white font-medium"
+                    : "hover:bg-[#111827] hover:text-white"
                 }
               `}
             >

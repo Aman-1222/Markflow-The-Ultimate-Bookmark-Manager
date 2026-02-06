@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { getCategories } from "../../../lib/product";
+import { Check } from "lucide-react";
 
 export default function ExplorePage() {
   const [categories, setCategories] = useState<any[]>([]);
@@ -30,16 +31,16 @@ export default function ExplorePage() {
 
   return (
     <div>
-      {/* Page Header */}
-      <div className="mb-10">
-        <h1 className="text-2xl font-semibold text-gray-900">Explore</h1>
-        <p className="text-sm text-gray-500 mt-1">
+      {/* Header */}
+      <div className="mb-12">
+        <h1 className="text-2xl font-semibold text-gray-100">Explore</h1>
+        <p className="text-sm text-gray-400 mt-2">
           Select interests to discover bookmarks.
         </p>
       </div>
 
-      {/* Category Boxes */}
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      {/* Category Grid */}
+      <div className="grid grid-cols-3 gap-8 mb-12">
         {categories.map((cat: any) => {
           const isSelected = selected.includes(cat.slug);
 
@@ -47,15 +48,25 @@ export default function ExplorePage() {
             <div
               key={cat.slug}
               onClick={() => toggleCategory(cat.slug)}
-              className={`p-6 rounded-lg border cursor-pointer transition-all duration-200
+              className={`relative p-6 rounded-lg border cursor-pointer
+                transition-all duration-200
                 ${
                   isSelected
-                    ? "bg-gray-900 text-white border-gray-900"
-                    : "bg-white border-gray-200 hover:border-gray-400 hover:shadow-sm"
+                    ? "bg-[#111827] border-gray-400 ring-1 ring-gray-500 scale-[1.02]"
+                    : "bg-[#111827] border-[#1F2937] text-gray-300 hover:border-gray-500"
                 }
               `}
             >
-              <h2 className="text-base font-semibold">{cat.name}</h2>
+              {/* Selected Badge */}
+              {isSelected && (
+                <div className="absolute top-3 right-3 bg-white text-black rounded-full p-1">
+                  <Check size={14} />
+                </div>
+              )}
+
+              <h2 className="text-base font-semibold text-gray-100">
+                {cat.name}
+              </h2>
             </div>
           );
         })}
@@ -65,8 +76,9 @@ export default function ExplorePage() {
       <button
         onClick={handleContinue}
         disabled={selected.length === 0}
-        className="px-6 py-3 rounded-md bg-gray-900 text-white text-sm 
-        hover:bg-black transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed active:scale-95"
+        className="px-6 py-3 rounded-md bg-white text-black text-sm
+        hover:bg-gray-200 transition
+        disabled:opacity-40 disabled:cursor-not-allowed active:scale-95"
       >
         Continue
       </button>

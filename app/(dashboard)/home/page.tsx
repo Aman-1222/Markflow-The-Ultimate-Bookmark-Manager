@@ -7,9 +7,9 @@ export default async function HomePage() {
   return (
     <div>
       {/* Page Header */}
-      <div className="mb-10">
-        <h1 className="text-2xl font-semibold text-gray-900">Home</h1>
-        <p className="text-sm text-gray-500 mt-1">
+      <div className="mb-12">
+        <h1 className="text-2xl font-semibold text-gray-100">Home</h1>
+        <p className="text-sm text-gray-400 mt-2">
           Discover and manage your bookmarks.
         </p>
       </div>
