@@ -110,7 +110,7 @@ export default function SettingsPage() {
         <div className="flex gap-4 flex-wrap">
           <button
             className="border border-[#1F2937] px-4 py-2 rounded-md 
-          text-gray-300 hover:bg-[#0F172A] transition"
+          text-gray-300 hover:bg-[#0F172A] transition cursor-pointer"
           >
             Export Bookmarks
           </button>
@@ -125,7 +125,7 @@ export default function SettingsPage() {
 
           <button
             className="border border-[#1F2937] px-4 py-2 rounded-md 
-          text-red-400 hover:bg-[#0F172A] transition"
+          text-red-400 hover:bg-[#0F172A] transition cursor-pointer"
           >
             Clear All Bookmarks
           </button>
@@ -138,7 +138,7 @@ export default function SettingsPage() {
           <button
             type="submit"
             className="bg-red-500 text-white px-6 py-2 rounded-md
-            hover:bg-red-600 transition active:scale-95"
+            hover:bg-red-600 transition active:scale-95 cursor-pointer"
           >
             Logout
           </button>

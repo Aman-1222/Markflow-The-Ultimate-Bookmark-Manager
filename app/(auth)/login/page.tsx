@@ -54,7 +54,7 @@ export default function LoginPage() {
         <button
           type="submit"
           className="w-full py-2 rounded-md bg-white text-black text-sm
-          hover:bg-gray-200 transition active:scale-95"
+          hover:bg-gray-200 transition active:scale-95 cursor-pointer"
         >
           Login
         </button>

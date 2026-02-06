@@ -78,7 +78,7 @@ export default function ExplorePage() {
         disabled={selected.length === 0}
         className="px-6 py-3 rounded-md bg-white text-black text-sm
         hover:bg-gray-200 transition
-        disabled:opacity-40 disabled:cursor-not-allowed active:scale-95"
+        disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 cursor-pointer"
       >
         Continue
       </button>

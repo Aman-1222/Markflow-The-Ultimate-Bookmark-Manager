@@ -21,7 +21,7 @@ export default async function CategoryDetailPage({
             title={product.title}
             description={product.description}
             image={product.thumbnail}
-            category={product.category}
+            category={product.category.toUpperCase()}
             rating={product.rating}
           />
         ))}

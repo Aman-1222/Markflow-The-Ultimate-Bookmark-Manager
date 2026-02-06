@@ -22,7 +22,7 @@ export default async function HomePage() {
             title={product.title}
             description={product.description}
             image={product.thumbnail}
-            category={product.category}
+            category={product.category.toUpperCase()}
             rating={product.rating}
           />
         ))}

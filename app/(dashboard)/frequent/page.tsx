@@ -53,7 +53,7 @@ export default async function FrequentPage() {
                   className="text-xs font-medium bg-[#1F2937] text-gray-300 
                   px-3 py-1 rounded-full w-fit mt-3"
                 >
-                  {product.category}
+                  {product.category.toUpperCase()}
                 </span>
               </div>
             </div>
