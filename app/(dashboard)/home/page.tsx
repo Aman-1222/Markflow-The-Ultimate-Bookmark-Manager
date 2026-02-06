@@ -6,9 +6,16 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Home</h1>
+      {/* Page Header */}
+      <div className="mb-10">
+        <h1 className="text-2xl font-semibold text-gray-900">Home</h1>
+        <p className="text-sm text-gray-500 mt-1">
+          Discover and manage your bookmarks.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-3 gap-8">
         {products.map((product: any) => (
           <BookmarkCard
             key={product.id}

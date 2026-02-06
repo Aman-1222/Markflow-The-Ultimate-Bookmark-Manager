@@ -6,7 +6,6 @@ export default async function CategoriesPage() {
 
   return (
     <div>
-      {/* ✅ FIXED HEADER ONLY */}
       <div className="flex items-center justify-between mb-6">
         {/* Left */}
         <div>
@@ -34,7 +33,6 @@ export default async function CategoriesPage() {
         </div>
       </div>
 
-      {/* ✅ YOUR ORIGINAL CATEGORY CARDS — NO CHANGE */}
       <div className="grid grid-cols-4 gap-6">
         {categories.map((category: any) => (
           <Link

@@ -14,7 +14,6 @@ export default function ExplorePage() {
       const data = await getCategories();
       setCategories(data);
     }
-
     load();
   }, []);
 
@@ -26,22 +25,21 @@ export default function ExplorePage() {
 
   function handleContinue() {
     if (selected.length === 0) return;
-
     router.push(`/explore/results?categories=${selected.join(",")}`);
   }
 
   return (
     <div>
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold">Explore</h1>
-        <p className="text-gray-500 text-sm">
+      {/* Page Header */}
+      <div className="mb-10">
+        <h1 className="text-2xl font-semibold text-gray-900">Explore</h1>
+        <p className="text-sm text-gray-500 mt-1">
           Select interests to discover bookmarks.
         </p>
       </div>
 
       {/* Category Boxes */}
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-3 gap-8 mb-10">
         {categories.map((cat: any) => {
           const isSelected = selected.includes(cat.slug);
 
@@ -49,11 +47,15 @@ export default function ExplorePage() {
             <div
               key={cat.slug}
               onClick={() => toggleCategory(cat.slug)}
-              className={`p-6 rounded shadow cursor-pointer border
-                ${isSelected ? "bg-black text-white" : "bg-white"}
+              className={`p-6 rounded-lg border cursor-pointer transition-all duration-200
+                ${
+                  isSelected
+                    ? "bg-gray-900 text-white border-gray-900"
+                    : "bg-white border-gray-200 hover:border-gray-400 hover:shadow-sm"
+                }
               `}
             >
-              <h2 className="text-lg font-semibold">{cat.name}</h2>
+              <h2 className="text-base font-semibold">{cat.name}</h2>
             </div>
           );
         })}
@@ -63,7 +65,8 @@ export default function ExplorePage() {
       <button
         onClick={handleContinue}
         disabled={selected.length === 0}
-        className="bg-black text-white px-6 py-3 rounded disabled:opacity-40"
+        className="px-6 py-3 rounded-md bg-gray-900 text-white text-sm 
+        hover:bg-black transition cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed active:scale-95"
       >
         Continue
       </button>
